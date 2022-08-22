@@ -95,112 +95,116 @@ class _WeatherPageState extends State<WeatherPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Color(0xFF8379AA),
-      body: Column(
-        children: [
-          Image.asset(
-            'assets/weather.png',
-            width: 100,
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  width: 280,
-                  height: 50,
-                  child: TextField(
-                    keyboardType: TextInputType.text,
-                    style: TextStyle(color: Colors.black, fontSize: 25),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      hintText: 'Search  location...',
-                      hintStyle: TextStyle(color: Colors.black, fontSize: 18.0),
-                      prefixIcon: Icon(Icons.search, color: Colors.black),
-                    ),
-                    onSubmitted: (String cityname) {
-                      onSubmittedText(cityname);
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 0,
-              ),
-              Container(
-                  child: GestureDetector(
-                onTap: getLocationWeather,
-                child: Icon(Icons.location_on_outlined),
-              )),
-            ],
-          ),
-          Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/$weather.png'),
-                    fit: BoxFit.cover)),
-          ),
-          // decoration: BoxDecoration(
-          //     image: DecorationImage(
-          //         image: AssetImage('assets/$weather.png'), fit: BoxFit.cover)),
-          SizedBox(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Column(
-                    children: <Widget>[
-                      Center(
-                        child: Image.asset(
-                          '$icon.png',
-                          width: 300,
-                        ),
-                      ),
-                      Center(
-                        child: Text(
-                          citylocation,
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 30.0),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Center(
-                        child: Text(
-                          description,
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 18.0),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10.0),
-            child: Row(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/h.png'), fit: BoxFit.cover),
+        ),
+        child: Column(
+          children: [
+            Container(),
+            Row(
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    width: 280,
+                    height: 50,
+                    child: TextField(
+                      keyboardType: TextInputType.text,
+                      style: TextStyle(color: Colors.black, fontSize: 25),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        hintText: 'Search  location...',
+                        hintStyle:
+                            TextStyle(color: Colors.black, fontSize: 18.0),
+                        prefixIcon: Icon(Icons.search, color: Colors.black),
+                      ),
+                      onSubmitted: (String cityname) {
+                        onSubmittedText(cityname);
+                      },
+                    ),
+                  ),
+                ),
                 SizedBox(
+                  width: 0,
+                ),
+                Container(
                     child: GestureDetector(
                   onTap: getLocationWeather,
                   child: Icon(Icons.location_on_outlined),
                 )),
-                SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  child: Text(citylocation),
-                ),
-                Text(pressure),
               ],
             ),
-          )
-        ],
+            Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/$weather.png'),
+                      fit: BoxFit.cover)),
+            ),
+            // decoration: BoxDecoration(
+            //     image: DecorationImage(
+            //         image: AssetImage('assets/$weather.png'), fit: BoxFit.cover)),
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Column(
+                      children: <Widget>[
+                        Center(
+                          child: Image.asset(
+                            '$icon.png',
+                            width: 300,
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            citylocation,
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 30.0),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Center(
+                          child: Text(
+                            description,
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 18.0),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                      child: GestureDetector(
+                    onTap: getLocationWeather,
+                    child: Icon(Icons.location_on_outlined),
+                  )),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    child: Text(citylocation),
+                  ),
+                  Text(pressure),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
