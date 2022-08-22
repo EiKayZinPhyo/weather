@@ -94,16 +94,20 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF8379AA),
+      // backgroundColor: Color(0xFF8379AA),
       body: Column(
         children: [
+          Image.asset(
+            'assets/weather.png',
+            width: 100,
+          ),
           Row(
             children: [
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
-                  width: 250,
-                  height: 40,
+                  width: 280,
+                  height: 50,
                   child: TextField(
                     keyboardType: TextInputType.text,
                     style: TextStyle(color: Colors.black, fontSize: 25),
@@ -150,14 +154,14 @@ class _WeatherPageState extends State<WeatherPage> {
                       Center(
                         child: Image.asset(
                           '$icon.png',
-                          width: 100,
+                          width: 300,
                         ),
                       ),
                       Center(
                         child: Text(
                           citylocation,
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 20.0),
+                              color: Colors.black, fontSize: 30.0),
                         ),
                       ),
                       const SizedBox(height: 20),
